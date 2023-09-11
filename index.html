@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
+    <div id="app">
+        <h1>Hola {{ name }}</h1>
+        <input v-model="name"><br>
+        <button @click="count++">
+            Count is: {{ count }}
+        </button><br>
+        <input v-model="num1">
+        <input v-model="num2"><br>
+        <button @click="resultado=parseInt(num1) + parseInt(num2)">
+            Suma
+        </button>
+        <h2>Resultado: {{ resultado }}</h2>
+    </div>
     
+    <script src="js/app.js"></script>
 </body>
 </html>
