@@ -19,6 +19,31 @@
             Suma
         </button>
         <h2>Resultado: {{ resultado }}</h2>
+        <hr>
+        <ul>
+            <li v-for="person in persons">
+                {{ person.userName }} - {{ person.lastName }}
+            </li>
+        </ul>
+        <form action="">
+            <fieldset>
+                <legend>
+                    Nombre(s):
+                </legend>
+                <input type="text" v-model="userName">
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    Apellido:
+                </legend>
+                <input type="text" v-model="lastName">
+            </fieldset>
+
+            <button type="button" v-on:click="addPerson">
+                Save Data
+            </button>
+        </form>
     </div>
     
     <script src="js/app.js"></script>
