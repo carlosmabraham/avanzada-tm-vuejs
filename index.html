@@ -8,7 +8,24 @@
 </head>
 <body>
     <div id="app">
-        <h1>Hola {{ name }}</h1>
+        <form action="">
+            <fieldset>
+                <legend>
+                    Email:
+                </legend>
+                <input type="email" placeholder="write here" name="" v-model="email">
+            </fieldset>
+            <fieldset>
+                <legend>
+                    Password:
+                </legend>
+                <input type="password" placeholder="write here" name="" v-model="password">
+            </fieldset>
+            <button @click="login()" type="button">
+                Access
+            </button>
+        </form>
+        <!-- <h1>Hola {{ name }}</h1>
         <input v-model="name"><br>
         <button @click="count++">
             Count is: {{ count }}
@@ -43,7 +60,7 @@
             <button type="button" v-on:click="addPerson">
                 Save Data
             </button>
-        </form>
+        </form> -->
     </div>
     
     <script src="js/app.js"></script>

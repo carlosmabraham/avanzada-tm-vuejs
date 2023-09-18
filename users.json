@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Jonathan",
+        "lastname":"Soto",
+        "email":"jsoto@uabcs.mx",
+        "password":"1234",
+        "role_id":1,
+        "avatar":""
+    },
+    {
+        "name": "Federico",
+        "lastname":"Fernandez",
+        "email":"ffernandez@uabcs.mx",
+        "password":"1234",
+        "role_id":1,
+        "avatar":""
+    },
+    {
+        "name": "Carlos",
+        "lastname":"Meza",
+        "email":"carlosmz@uabcs.mx",
+        "password":"1234",
+        "role_id":1,
+        "avatar":""
+    }
+]

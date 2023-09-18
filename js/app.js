@@ -2,31 +2,34 @@ const { createApp, ref } = Vue
 
 createApp({
     setup() {
-        const name = ref('')
-        const count = ref(0)
-        const resultado = ref(0)
-        const userName = ref('')
-        const lastName = ref('')
-        const persons = ref([])
+        const users = ref([]);
+        const email = ref("");
+        const password = ref("");
         return {
-            name,
-            count,
-            resultado,
-            userName,
-            lastName, 
-            persons
+            users,
+            email,
+            password
         }
     },
     methods:{
-        addPerson(){
-            const person = {
-                userName:this.userName, 
-                lastName:this.lastName
+        async login() {
+            const response = await fetch("./users.json");
+            const users = await response.json();
+            console.log(users)
+
+            let login = false
+
+            users.forEach(( user ) => {
+                if(this.email == user.email) {
+                    if( this.password == user.password ) {
+                        alert( "Bienvenido" );
+                        login = true
+                    }
+                }
+            });
+            if( !login ) {
+                alert("Verifique sus datos");
             }
-            // console.log('Hola Vue')
-            // console.log(this.name)
-            // console.log(this.lastName)
-            this.persons.push(person)
         }
     }
 }).mount('#app')
