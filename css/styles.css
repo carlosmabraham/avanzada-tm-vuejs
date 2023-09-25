@@ -1,0 +1,12 @@
+body {
+    background-color: #73BFBF;
+}
+
+.container {
+    background-color: blueviolet;
+    align-items: center;
+}
+
+table, th, td {
+    border: 2px solid black;
+}

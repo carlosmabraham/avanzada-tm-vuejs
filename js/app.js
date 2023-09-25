@@ -17,18 +17,26 @@ createApp({
             const users = await response.json();
             console.log(users)
 
-            let login = false
-
-            users.forEach(( user ) => {
-                if(this.email == user.email) {
-                    if( this.password == user.password ) {
-                        alert( "Bienvenido" );
-                        login = true
+            const acces = users.map(( u ) =>{
+                console.log('Hola')
+                if( this.email == u.email ) {
+                    if( this.password == u.password ) {
+                        alert('Bienvenido')
+                          return true;
                     }
                 }
-            });
-            if( !login ) {
-                alert("Verifique sus datos");
+            })
+
+
+            if(acces.includes( true )) {
+                console.log('accediste')
+                window.location.href="data.html";
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!'
+                  })
             }
         }
     }
