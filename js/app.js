@@ -3,12 +3,33 @@ const { createApp, ref } = Vue
 createApp({
     setup() {
         const users = ref([]);
-        const email = ref("");
-        const password = ref("");
+        //const email = ref("");
+        const email = ref('Sincere@april.biz');
+        const password = ref('secret')
+        //const password = ref("");
+        let tmp = localStorage.getItem("is_login");
+        if( tmp == null ) {
+            tmp = false;
+        }
+
+        is_login = ref(tmp);
         return {
             users,
             email,
-            password
+            password,
+            is_login
+        }
+    },
+    mounted: () => {
+        const getUsers = async() => {
+            const response = await fetch('./users.json?v=1.1');
+            const tmp_users = await response.json();
+
+            this.users = tmp_users;
+        }
+
+        if( this.is_login ) {
+            getUsers();
         }
     },
     methods:{

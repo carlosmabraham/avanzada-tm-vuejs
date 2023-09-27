@@ -67,47 +67,85 @@ createApp({
 
 
       },
-      remove(u) {
-          swal.fire({
-              title: "Estas seguro?",
-              text: "Una vez eliminado, no podras recuperar este archivo!",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
+      remove(id) {
+
+          console.log(id)
+
+          let c = 0;
+          let i = 0
+
+          this.users.forEach((user) => {
+              if (user.id == id) {
+                  console.log(user.id);
+                  i = c;
+              }
+
+              c++;
+          });
+
+          this.users.splice(i, 1);
+
+
+
+
+        //   swal.fire({
+        //       title: "Estas seguro?",
+        //       text: "Una vez eliminado, no podras recuperar este archivo!",
+        //       icon: "warning",
+        //       buttons: true,
+        //       dangerMode: true,
+        //   })
+
+        //       .then((willDelete) => {
+        //           if (willDelete) {
+
+
+        //               let c = 0;
+        //               let i = 0;
+
+        //               this.users.forEach(function (e) {
+        //                   //element => console.log(element)
+
+        //                   if (e.id == u) {
+        //                       console.log(e)
+        //                       i = c;
+        //                   }
+
+        //                   c++;
+        //               });
+
+        //               console.log(i)
+        //               this.users.splice(i, 1)
+
+        //               swal.fire("Tu archivo ha sido eliminado", {
+        //                   icon: "success",
+        //               });
+
+        //           } else {
+        //               swal.fire("Tu archivo ha sido guardado");
+        //           }
+        //       });
+
+      },
+      removeFilter( id ) {
+        const newArrayUsers = this.users.filter( (o) => {
+            return o.id !== id
           })
 
-              .then((willDelete) => {
-                  if (willDelete) {
+          this.users = newArrayUsers
 
 
-                      let c = 0;
-                      let i = 0;
-
-                      this.users.forEach(function (e) {
-                          //element => console.log(element)
-
-                          if (e.id == u) {
-                              console.log(e)
-                              i = c;
-                          }
-
-                          c++;
-                      });
-
-                      console.log(i)
-                      this.users.splice(i, 1)
-
-                      swal.fire("Tu archivo ha sido eliminado", {
-                          icon: "success",
-                      });
-
-                  } else {
-                      swal.fire("Tu archivo ha sido guardado");
-                  }
-              });
-
+          console.log( this.users );
       }
+    //   edit( target ) {
+    //     this.action = 'edit';
+
+    //     this.new_user.name = target.name;
+    //     this.new_user.email = target.email;
+    //     this.new_user.
+    //   }
   },
+
     mounted() {
         fetch('users.json')
             .then((res) => res.json())
